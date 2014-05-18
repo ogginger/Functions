@@ -1,0 +1,61 @@
+/*Test Design:
+1. MUT
+	bCheckForFile( string sNameInput )
+2. Scenario
+	bCheckForFile( "test" ); Returns true;
+3. Prototype
+	void bCheckForFile_test_returnsTrue();
+4. Psuedocode
+	arrange-
+		4.1. bool bFile = false; 
+	act-
+		4.2. bFile = bCheckForFile( "test" );
+	assert-
+		4.3 assert ( bFile == true );
+4. Implement test.
+5. Compile test.
+6. Fail test.
+6. Implement src.
+7. Git commit
+
+*///bCheckForFile_tests.h: Test the bCheckForFile function.
+
+#ifndef BCHECKFORFILE_TESTS_H
+#define BCHECKFORFILE_TESTS_H
+
+//MUT
+#include "../src/bCheckForFile.h"
+
+//libs...
+#include <cassert>
+#include <fstream>
+
+//etc...
+#include "../bin/print.h"
+
+using namespace std;
+
+class bCheckForFile_tests {
+public:
+	bCheckForFile_tests() {
+		print("Testing the bCheckForFile function...");
+		run();
+	}
+	
+	~bCheckForFile_tests() {
+		print( "Testing complete. All tests passed." );
+	}
+	
+	void run() {
+		bCheckForFile_test_returnsTrue();
+
+	}
+
+	void bCheckForFile_test_returnsTrue() {
+		bool bFile = false;
+		bFile = bCheckForFile( "test" );
+		assert( bFile == true );
+	}
+};
+
+#endif
